@@ -1,0 +1,60 @@
+body,
+html {
+  margin: 0;
+  padding: 0;
+  font-size: 20px;
+  font-family: "Montserrat", sans-serif;
+  background-color: #363636; }
+
+#mainContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; }
+  #mainContainer #courseCardTray {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    width: 100%;
+    overflow: scroll; }
+    #mainContainer #courseCardTray .card {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin: 1rem;
+      background-color: white;
+      border-radius: 0.5rem;
+      overflow: hidden;
+      box-shadow: 0px 0px 10px black;
+      width: 100%;
+      min-width: 225px; }
+      #mainContainer #courseCardTray .card .cardImg {
+        height: 200px;
+        width: 100%;
+        background-position: center;
+        background-size: cover; }
+      #mainContainer #courseCardTray .card .cardBtn {
+        width: 100%;
+        border-radius: 0.25rem;
+        border: none;
+        padding-top: 0.33333rem;
+        padding-bottom: 0.33333rem;
+        font-size: 0.8em;
+        color: white;
+        background-color: #78bc61;
+        text-align: center;
+        border-radius: 0; }
+        #mainContainer #courseCardTray .card .cardBtn:hover {
+          color: white;
+          background-color: #97cb85;
+          cursor: pointer; }
+        #mainContainer #courseCardTray .card .cardBtn:active {
+          color: white;
+          background-color: #78bc61; }
+      #mainContainer #courseCardTray .card span {
+        margin: 1rem; }
+    #mainContainer #courseCardTray :first-child {
+      margin-right: 0; }
+    #mainContainer #courseCardTray :last-child {
+      margin-left: 0; }

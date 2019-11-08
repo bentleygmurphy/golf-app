@@ -1,0 +1,59 @@
+@import "global";
+
+body,
+html {
+  margin: 0;
+  padding: 0;
+  font-size: 20px;
+  font-family: "Montserrat", sans-serif;
+  background-color: $grey;
+}
+
+#mainContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  #courseCardTray {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    width: 100%;
+    overflow: scroll;
+    .card {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin: $defMargin;
+      background-color: $white;
+      border-radius: $defBorderRadius;
+      overflow: hidden;
+      box-shadow: 0px 0px 10px $black;
+      width: 100%;
+      min-width: 225px;
+      .cardImg {
+        height: 200px;
+        width: 100%;
+        background-position: center;
+        background-size: cover;
+      }
+      .cardBtn {
+          @include btn($white, $green, 100%);
+          border-radius: 0;
+      }
+      span {
+          margin: $defMargin;
+      }
+    }
+    :first-child {
+        margin-right: 0;
+    }
+    :last-child {
+        margin-left: 0;
+    }
+  }
+  #scoreCard {
+  }
+}
+//@media only screen and (max-width: 800px){}
