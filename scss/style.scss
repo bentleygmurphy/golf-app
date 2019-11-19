@@ -39,21 +39,34 @@ html {
         background-size: cover;
       }
       .cardBtn {
-          @include btn($white, $green, 100%);
-          border-radius: 0;
+        @include btn($white, $green, 100%);
+        border-radius: 0;
       }
       span {
-          margin: $defMargin;
+        margin: $defMargin;
       }
     }
     :first-child {
-        margin-right: 0;
+      margin-right: 0;
     }
     :last-child {
-        margin-left: 0;
+      margin-left: 0;
     }
   }
   #scoreCard {
+    display: none;
+    flex-direction: column;
+    background-color: $white;
+    border-radius: $defBorderRadius;
+    overflow: hidden;
+    select {
+      margin: $defMargin;
+      padding: $defPadding;
+    }
+    .cardBtn {
+      @include btn($white, $blue, 100%);
+      border-radius: 0;
+    }
   }
 }
 //@media only screen and (max-width: 800px){}

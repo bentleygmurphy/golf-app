@@ -38,6 +38,7 @@ html {
         width: 100%;
         border-radius: 0.25rem;
         border: none;
+        outline: 0;
         padding-top: 0.33333rem;
         padding-bottom: 0.33333rem;
         font-size: 0.8em;
@@ -58,3 +59,31 @@ html {
       margin-right: 0; }
     #mainContainer #courseCardTray :last-child {
       margin-left: 0; }
+  #mainContainer #scoreCard {
+    display: none;
+    flex-direction: column;
+    background-color: white;
+    border-radius: 0.5rem;
+    overflow: hidden; }
+    #mainContainer #scoreCard select {
+      margin: 1rem;
+      padding: 1rem; }
+    #mainContainer #scoreCard .cardBtn {
+      width: 100%;
+      border-radius: 0.25rem;
+      border: none;
+      outline: 0;
+      padding-top: 0.33333rem;
+      padding-bottom: 0.33333rem;
+      font-size: 0.8em;
+      color: white;
+      background-color: #2176ff;
+      text-align: center;
+      border-radius: 0; }
+      #mainContainer #scoreCard .cardBtn:hover {
+        color: white;
+        background-color: #5495ff;
+        cursor: pointer; }
+      #mainContainer #scoreCard .cardBtn:active {
+        color: white;
+        background-color: #2176ff; }

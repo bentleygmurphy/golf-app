@@ -1,4 +1,5 @@
 let myCourses = {};
+let currentCourse = {};
 
 (function() {
   loadCourses();
@@ -14,7 +15,7 @@ function loadCourses() {
           `<div class="card">
             <div class="cardImg" style="background-image: url(${myCourses.courses[i].image})"></div>
             <span>${myCourses.courses[i].name}</span>
-            <button id="btn${myCourses.courses[i].id}" class="cardBtn">SELECT</button>
+            <button id="btn${myCourses.courses[i].id}" class="cardBtn" onclick="loadCourseInfo(${myCourses.courses[i].id})">SELECT</button>
           </div>`
         );
       }
@@ -23,3 +24,23 @@ function loadCourses() {
   xhttp.open("GET", "https://golf-courses-api.herokuapp.com/courses", true);
   xhttp.send();
 }
+
+function loadCourseInfo(id) {
+  xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      currentCourse = JSON.parse(this.responseText);
+      $(`#btn${id}`).css("background-color", "rgba(33, 118, 255, 1)");
+      $("#scoreCard").css("display", "flex");
+      $("#selectTee").html("");
+      for (let i = 0; i < currentCourse.data.holes[0].teeBoxes.length; i++) {
+        $("#selectTee").append(
+          `<option value="${i}">${currentCourse.data.holes[0].teeBoxes[i].teeType}</option>`
+        );
+      }
+    }
+  };
+  xhttp.open("GET", `https://golf-courses-api.herokuapp.com/courses/${id}`, true);
+  xhttp.send();
+}
+

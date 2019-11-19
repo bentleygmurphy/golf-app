@@ -9,35 +9,35 @@ $defPadding: 1rem;
 $defBorderRadius: 0.5rem;
 
 @mixin btn($textColor, $bgColor, $length) {
-    width: $length;
-    border-radius: $defBorderRadius / 2;
-    border: none;
-    padding-top: $defPadding / 3;
-    padding-bottom: $defPadding / 3;
-    font-size: 0.8em;
+  width: $length;
+  border-radius: $defBorderRadius / 2;
+  border: none;
+  outline: 0;
+  padding-top: $defPadding / 3;
+  padding-bottom: $defPadding / 3;
+  font-size: 0.8em;
+  color: $textColor;
+  background-color: $bgColor;
+  text-align: center;
+
+  &:hover {
+    color: lighten($textColor, 10%);
+    background-color: lighten($bgColor, 10%);
+    cursor: pointer;
+  }
+  &:active {
     color: $textColor;
     background-color: $bgColor;
-    text-align: center;
-  
-    &:hover {
-      color: lighten($textColor, 10%);
-      background-color: lighten($bgColor, 10%);
-      cursor: pointer;
-    }
-    &:active {
-      color: $textColor;
-      background-color: $bgColor;
-    }
   }
-  
-  @mixin imp($color, $length) {
-    width: $length;
-    border-color: $color;
-    border-radius: $defBorderRadius / 2;
-    padding-top: $defPadding / 3;
-    padding-bottom: $defPadding / 3;
-    font-size: 0.8em;
-    text-decoration: none;
-    text-align: center;
-  }
-  
+}
+
+@mixin imp($color, $length) {
+  width: $length;
+  border-color: $color;
+  border-radius: $defBorderRadius / 2;
+  padding-top: $defPadding / 3;
+  padding-bottom: $defPadding / 3;
+  font-size: 0.8em;
+  text-decoration: none;
+  text-align: center;
+}
