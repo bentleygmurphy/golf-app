@@ -10,6 +10,7 @@ function loadCourses() {
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
       myCourses = JSON.parse(this.responseText);
+      addCourses();
       for (let i = 0; i < myCourses.courses.length; i++) {
         $("#courseCardTray").append(
           `<div class="card">
@@ -23,6 +24,12 @@ function loadCourses() {
   };
   xhttp.open("GET", "https://golf-courses-api.herokuapp.com/courses", true);
   xhttp.send();
+}
+
+function addCourses(id) {
+  for(let i = 0; i < myCourses.courses.length; i++) {
+    myScoreCards.add(myCourses.courses[i].id);
+   }
 }
 
 function loadCourseInfo(id) {
@@ -44,3 +51,21 @@ function loadCourseInfo(id) {
   xhttp.send();
 }
 
+let playerIdCounter = 0;
+
+$("#addPlayer").click(function() {
+  for(let i = 0; i < myScoreCards.collection.length; i++) {
+    if(myScoreCards.collection[i].courseId == currentCourse.data.id) {
+      myScoreCards.collection[i].add(playerIdCounter);
+      playerIdCounter ++;
+      displayPlayers(i);
+    }
+  }
+})
+
+function displayPlayers(course) {
+  course = myScoreCards.collection[course]
+  for(let i = 0; i < course.collection.length; i++) {
+    console.log(i);
+  }
+}
