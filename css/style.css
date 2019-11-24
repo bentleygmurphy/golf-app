@@ -87,3 +87,6 @@ html {
       #mainContainer #scoreCard .cardBtn:active {
         color: white;
         background-color: #2176ff; }
+    #mainContainer #scoreCard .player .playerScores .scoreInput {
+      height: 20px;
+      width: 20px; }

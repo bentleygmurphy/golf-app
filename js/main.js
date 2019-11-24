@@ -16,7 +16,7 @@ function loadCourses() {
           `<div class="card">
             <div class="cardImg" style="background-image: url(${myCourses.courses[i].image})"></div>
             <span>${myCourses.courses[i].name}</span>
-            <button id="btn${myCourses.courses[i].id}" class="cardBtn" onclick="loadCourseInfo(${myCourses.courses[i].id})">SELECT</button>
+            <button id="btn${myCourses.courses[i].id}" class="cardBtn" onclick="loadCourseInfo(${myCourses.courses[i].id}), displayPlayers(${i});">SELECT</button>
           </div>`
         );
       }
@@ -64,8 +64,41 @@ $("#addPlayer").click(function() {
 })
 
 function displayPlayers(course) {
-  course = myScoreCards.collection[course]
-  for(let i = 0; i < course.collection.length; i++) {
-    console.log(i);
+  selectedCourse = myScoreCards.collection[course]
+  $("#scoreTable").html("");
+  for(let i = 0; i < selectedCourse.collection.length; i++) {
+    $("#scoreTable").append(
+      `<div class="player" class="playerInfo">
+        <div class="playerScores" id="playerScores${myScoreCards.collection[course].courseId}-${selectedCourse.collection[i].id}">
+          <input id="playerName" type="text" placeholder="Player Name">
+        </div>
+        <div class="playerTotals" id="playerTotals${myScoreCards.collection[course].courseId}-${selectedCourse.collection[i].id}"></div>
+      </div>`
+    );
+    for(let j = 0; j < selectedCourse.holes; j++) {
+      $(`#playerScores${myScoreCards.collection[course].courseId}-${selectedCourse.collection[i].id}`).append(
+        `<input id="p${selectedCourse.collection[i].id}h${j}" class="scoreInput" type="text" placeholder="${j}">`
+      );
+    }
+    updateTotals(course, i);
   }
 }
+
+function updateTotals(course, player) {
+  let total = 0;
+  for(let i = 0; i < 18; i++) {
+    console.log(`#p${myScoreCards.collection[course].collection[player].id}h${i}`)
+    parseInt($(`#p${myScoreCards.collection[course].collection[player].id}h${i}`).val()) + total;
+    console.log(total)
+  }
+  $(`#playerTotals${myScoreCards.collection[course].courseId}-${selectedCourse.collection[player].id}`).append(
+    `<div>Total: ${total}</div>`
+  );
+}
+
+$(".scoreInput").keypress(function(e) {
+  if (e.which == 13) {
+    console.log("hi")
+    displayPlayers();
+  }
+})

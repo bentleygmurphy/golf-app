@@ -12,6 +12,7 @@ myScoreCards = new ScoreCardContainer();
 class ScoreCard {
     constructor(courseId) {
         this.courseId = courseId;
+        this.tee = 0;
         this.holes = 18;
         this.collection = [];
     }
@@ -23,7 +24,11 @@ class ScoreCard {
 class Player {
     constructor(id) {
         this.id = id;
+        this.name = name;
+        this.score = {}; //hole id, par, score
         this.handicap = 0;
-        this.score = {};
+        this.frontNine = 0;
+        this.backNine = 0;
     }
+    //calculate stuff methods
 }
