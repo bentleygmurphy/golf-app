@@ -84,8 +84,10 @@ function displayPlayers(course) {
   }
 }
 
+//work in progress below
 function updateTotals(course, player) {
   let total = 0;
+  //this needs to be re-written on a model level player.addscore
   for(let i = 0; i < 18; i++) {
     console.log(`#p${myScoreCards.collection[course].collection[player].id}h${i}`)
     parseInt($(`#p${myScoreCards.collection[course].collection[player].id}h${i}`).val()) + total;
